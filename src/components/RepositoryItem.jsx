@@ -40,7 +40,7 @@ const RepositoryItem = ({ data }) => {
       <View style={styles.basicInfoContainer}>
         <Image style={styles.tinyImage} source={{ uri: `${data.ownerAvatarUrl}` }} />
         <View style={styles.repositoryTextData}>
-          <Text fontWeight='bold' fontSize='subheading'>{data.fullName}</Text>
+          <Text fontWeight='bold' fontSize='subheading'>{data.name}</Text>
           <Text color='textSecondary'>{data.description}</Text>
           <Text style={styles.language}>{data.language}</Text>
         </View>

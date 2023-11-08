@@ -1,6 +1,9 @@
 import { Pressable, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
 import Text from './Text';
+import useAuthStorage from "../hooks/useAuthStorage";
+import { useApolloClient } from '@apollo/client';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -10,12 +13,18 @@ const styles = StyleSheet.create({
 })
 
 export const AppBarTab = ({ label, path }) => {
+    const authStorage = useAuthStorage();
+    const apolloClient = useApolloClient();
+
+    const signOut = async () => {
+        await authStorage.removeAccessToken();
+        apolloClient.resetStore();
+    }
+
     return (
-        <Pressable>
-            <Link to={path}>
+        <Link to={path} onPress={() => {label === 'Sign Out' && signOut()}}>
                 <Text style={styles.container} fontWeight='bold' >{label}</Text>
-            </Link>
-        </Pressable>
+        </Link>
     );
 };
 
