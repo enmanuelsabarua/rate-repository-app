@@ -1,7 +1,7 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
-import Text from './Text';
-import useAuthStorage from "../hooks/useAuthStorage";
+import Text from '../Text';
+import useAuthStorage from "../../hooks/useAuthStorage";
 import { useApolloClient } from '@apollo/client';
 
 
@@ -22,8 +22,8 @@ export const AppBarTab = ({ label, path }) => {
     }
 
     return (
-        <Link to={path} onPress={() => {label === 'Sign Out' && signOut()}}>
-                <Text style={styles.container} fontWeight='bold' >{label}</Text>
+        <Link to={path} onPress={() => { label === 'Sign Out' && signOut() }}>
+            <Text style={styles.container} fontWeight='bold' >{label}</Text>
         </Link>
     );
 };

@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import Text from "./Text";
+import Text from "../Text";
 
 const styles = StyleSheet.create({
     statText: {
@@ -16,12 +16,12 @@ const Stat = ({ number, text }) => {
         newNumber = number;
     }
 
-  return (
-    <View>
-        <Text fontWeight='bold' fontSize='subheading' style={styles.statText}>{newNumber}</Text>
-        <Text color='textSecondary' >{text}</Text>
-    </View>
-  );
+    return (
+        <View>
+            <Text fontWeight='bold' fontSize='subheading' style={styles.statText}>{newNumber}</Text>
+            <Text color='textSecondary' >{text}</Text>
+        </View>
+    );
 };
 
 export default Stat;
